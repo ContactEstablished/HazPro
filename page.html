@@ -1,0 +1,35 @@
+<link href="lib/ionic/css/repincident.css" rel="stylesheet">
+<ion-view title="Page">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h5>Report a Safety Hazard</h5>
+        <form class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Your Name">
+            </label>
+            <label class="item item-input">
+                <input type="tel" placeholder="Contact Number">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Incident Title">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Description">
+            </label>
+            <label class="item item-select">
+                <span class="input-label">Priority</span>
+                <select>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                    <option>Critical</option>                    
+                </select>
+            </label>
+        </form>
+        <button class="button button-stable button-block  icon ion-camera"></button>
+        <div class="spacer" style="width: 283px; height: 29px;"></div>
+        <div class="button-bar">
+            <button class="button button-stable button-block  icon ion-close"></button>
+            <button class="button button-stable button-block  icon ion-checkmark"></button>
+        </div>
+    </ion-content>
+</ion-view>
