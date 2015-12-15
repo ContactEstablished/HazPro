@@ -10,7 +10,14 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  
+  $scope.sendEmail = function(email, subject, body) {  
+       var link = "mailto:hackathonphonegap@gmail.com"  
+                + "?subject=New%20incident%20report "  
+               + "&body=Stuff%20will%20go%20here.";  
+    
+       window.location.href = link;  
+   };  
+
   
   // Called when a photo is successfully retrieved
     //
@@ -55,12 +62,12 @@ $scope.capturePhotoWithData=function(){
   
   
 };
-$scope.SaveData=function(){
+/*$scope.SaveData=function(){
    alert("HEllo")
-    var hazobj = Parse.Object.extend('incidents');
+   var hazobj = Parse.Object.extend('incidents');
     
         var hazard = new hazobj();
-       hazard.set("Name", "Jack Taaper");
+        hazard.set("Name", "Jack Taaper");
         hazard.set("Phone", "Jack Taaper");
         hazard.set("title","Gas Leak");
         hazard.set("description","Gas Leak on Main Street");
@@ -73,7 +80,7 @@ $scope.SaveData=function(){
         
     
      
-   };
+   };*/
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
