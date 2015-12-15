@@ -27,7 +27,7 @@
             </label>
             <label class="item item-select">
                 <span class="input-label">Priority</span>
-                <select ng-model="priority">
+                <select ng-model="rpt.Priority">
                     <option>Low</option>
                     <option>Medium</option>
                     <option>High</option>
@@ -40,7 +40,7 @@
         <div class="spacer" style="width: 283px; height: 29px;"></div>
         <div class="button-bar">
             <button class="button button-stable button-block  icon ion-close "></button>
-            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(rpt.name, rpt.phone, rpt.title, rpt.desc)"></button>
+            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(rpt.name, rpt.phone, rpt.title, rpt.desc, rpt.Priority)"></button>
         </div>
   </ion-content>
 </ion-view>
