@@ -1,16 +1,45 @@
-<ion-view view-title="Chats">
+<style>
+.icon.ion-close {
+	fill:red;
+	stroke:red;
+	color:red;
+}
+.icon.ion-checkmark {
+	fill:green;
+	stroke:green;
+	color:green;
+}
+</style>
+<ion-view view-title="Report Incident">
   <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+        <form class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Your Name">
+            </label>
+            <label class="item item-input">
+                <input type="tel" placeholder="Contact Number">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Incident Title">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Description">
+            </label>
+            <label class="item item-select">
+                <span class="input-label">Priority</span>
+                <select>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                    <option>Critical</option>                    
+                </select>
+            </label>
+        </form>
+        <button class="button button-stable button-block  icon ion-camera"></button>
+        <div class="spacer" style="width: 283px; height: 29px;"></div>
+        <div class="button-bar">
+            <button class="button button-stable button-block  icon ion-close "></button>
+            <button class="button button-stable button-block  icon ion-checkmark "></button>
+        </div>
   </ion-content>
 </ion-view>
