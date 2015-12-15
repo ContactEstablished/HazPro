@@ -5,15 +5,23 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value 
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+    
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    Parse.initialize("J7PdpYTk1tprSwxwu0Y3J9YgYEqVMKsfRCBpBP23", "l7tMFofSGwdGXq2CSNB6jIZatHu6UdcZjIXDS7hd");
+    
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
+       pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
 
     }
     if (window.StatusBar) {
