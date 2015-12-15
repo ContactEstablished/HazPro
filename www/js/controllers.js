@@ -1,5 +1,5 @@
 angular.module('starter.controllers', [])
-
+//.controller('doMail', function($window.location = "mailto:foo@bar.com?subject=mail subject&body=mail body;"){})
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -10,7 +10,14 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+  // I added the scope sendemail for the mail to function
+  $scope.sendEmail = function(email, subject, body) {
+      var link = "mailto:hackathonphonegap@gmail.com"
+               + "?subject=New%20incident%20report "
+               + "&body=" + escape(body);
 
+      window.location.href = link;
+  };
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);

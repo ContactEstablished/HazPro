@@ -12,7 +12,7 @@
 </style>
 <ion-view view-title="Report Incident">
   <ion-content>
-        <form class="list">
+        <form name="myForm"class="list">
             <label class="item item-input">
                 <input type="text" placeholder="Your Name">
             </label>
@@ -31,15 +31,15 @@
                     <option>Low</option>
                     <option>Medium</option>
                     <option>High</option>
-                    <option>Critical</option>                    
+                    <option>Critical</option>
                 </select>
             </label>
         </form>
         <button class="button button-stable button-block  icon ion-camera"></button>
         <div class="spacer" style="width: 283px; height: 29px;"></div>
         <div class="button-bar">
-            <button class="button button-stable button-block  icon ion-close "></button>
-            <button class="button button-stable button-block  icon ion-checkmark "></button>
+            <button class="button button-stable button-block  icon ion-close"></button><!--I added the code below for the mail to-->
+            <button class="button button-stable button-block  icon ion-checkmark"ng-click="sendEmail(message.Email, message.subject, message.body)"></button>
         </div>
   </ion-content>
 </ion-view>
