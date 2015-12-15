@@ -14,20 +14,20 @@
   <ion-content>
         <form name="myForm" class="list">
             <label class="item item-input">
-                <input type="text" placeholder="Your Name">
+                <input type="text" ng-model="rpt.name" placeholder="Your Name">
             </label>
             <label class="item item-input">
-                <input type="tel" placeholder="Contact Number">
+                <input type="tel"  ng-model="rpt.phone" placeholder="Contact Number">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Incident Title">
+                <input type="text" ng-model="rpt.title" placeholder="Incident Title">
             </label>
             <label class="item item-input">
-                <input type="text" placeholder="Description">
+                <input type="text" ng-model="rpt.desc" placeholder="Description">
             </label>
             <label class="item item-select">
                 <span class="input-label">Priority</span>
-                <select>
+                <select ng-model="priority">
                     <option>Low</option>
                     <option>Medium</option>
                     <option>High</option>
@@ -40,7 +40,7 @@
         <div class="spacer" style="width: 283px; height: 29px;"></div>
         <div class="button-bar">
             <button class="button button-stable button-block  icon ion-close "></button>
-            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(message.Email, message.subject, message.body)"></button>
+            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(rpt.name, rpt.phone, rpt.title, rpt.desc)"></button>
         </div>
   </ion-content>
 </ion-view>

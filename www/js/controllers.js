@@ -10,10 +10,16 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  $scope.sendEmail = function(email, subject, body) {  
+  $scope.sendEmail = function(name, phone, title, desc) { 
+       var area = phone.substring(0,3);
+       var ph1 = phone.substring(3,6);
+       var ph2 = phone.substring(6,10);
+       var telephone = "(" + area + ")" + ph1 + "-" + ph2; 
+  	   var body = "Name: " + name + '<br />' + "Phone: " + telephone + '<br />' + "Incident: " + title + '<br />' 
+  	   + "Desc: " + desc + '<br />' + "Priority: ";
        var link = "mailto:hackathonphonegap@gmail.com"  
                 + "?subject=New%20incident%20report "  
-               + "&body=Stuff%20will%20go%20here.";  
+               + "&body=" + body;  
     
        window.location.href = link;  
    };  
