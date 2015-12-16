@@ -3,20 +3,19 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+
+// Email setup function
   $scope.sendEmail = function(name, phone, title, desc, priority) { 
        var area = phone.substring(0,3);
        var ph1 = phone.substring(3,6);
        var ph2 = phone.substring(6,10);
        var telephone = "(" + area + ")" + ph1 + "-" + ph2; 
-  	   var body = "Name: " + name + '<br />' + "Phone: " + telephone + '<br />' + "Incident: " + title + '<br />' 
-  	   + "Desc: " + desc + '<br />' + "Priority: " + priority;
+  	   var body = "An incident has been reported by: " + '<br />' +
+                  "Name: " + name + '<br />' + 
+                  "Phone: " + telephone + '<br />' + 
+                  "Incident: " + title + '<br />' + 
+                  "Desc: " + desc + '<br />' + 
+                  "Priority: " + priority;
        var link = "mailto:hackathonphonegap@gmail.com"  
                 + "?subject=New%20incident%20report "  
                + "&body=" + body;  
@@ -65,6 +64,7 @@ angular.module('starter.controllers', [])
     }
 $scope.capturePhotoWithData=function(){
    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+   
   
   
 };
@@ -81,15 +81,10 @@ $scope.capturePhotoWithData=function(){
         hazard.set("gpscord","new Parse.GeoPoint({latitude:geoPoint.latitude, longitude:geoPoint.longitude})");
         
         hazard.save(null, {});
-        
-        
-        
-    
-     
-   };*/
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  };*/
+$scope.chats = Chats.all();
+$scope.remove = function(chat) {
+  Chats.remove(chat);
   };
 })
 
