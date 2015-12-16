@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
 .controller('ChatsCtrl', function($scope, Chats) {
 
 // Email setup function
+
   $scope.sendEmail = function(name, phone, title, desc, priority) {
        var image = document.getElementById('smallImage');
        var area = phone.substring(0,3);
@@ -40,7 +41,7 @@ angular.module('starter.controllers', [])
                 
                
     	          insertData(name.value,desc.value,inctitle.value,phonenum.value,priority.value);
-               name.value = '';
+                name.value = '';
                 desc.value = '';
                 inctitle.value = '';
                 priority.value = '';
