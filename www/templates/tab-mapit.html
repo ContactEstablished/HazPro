@@ -1,0 +1,14 @@
+<ion-view view-title="Map">
+  <ion-content class="padding">
+      <div>
+        <!--<div id="map"></div>-->
+        <ion-content scroll="false">
+          <!--<map on-create="mapCreated(map)"></map>-->
+          <div id="map" data-tap-disabled="true"></div>
+        </ion-content>      
+        <ion-footer-bar class="bar-stable">
+          <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+        </ion-footer-bar>
+      </div>
+  </ion-content>
+</ion-view>

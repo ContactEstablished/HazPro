@@ -4,11 +4,6 @@
 	stroke:red;
 	color:red;
 }
-.icon.ion-camera {
-	fill:#0066ff;
-	stroke:#0066ff;
-	color:#0066ff;
-}
 .icon.ion-checkmark {
 	fill:green;
 	stroke:green;
@@ -36,7 +31,7 @@
                     <option>Low</option>
                     <option>Medium</option>
                     <option>High</option>
-                    <option>Critical</option>                   
+                    <option>Critical</option>                    
                 </select>
             </label>
         </form>
@@ -45,7 +40,7 @@
         <div class="spacer" style="width: 283px; height: 29px;"></div>
         <div class="button-bar">
             <button class="button button-stable button-block  icon ion-close " onclick="history.go(-1);"></button>
-            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(rpt.name, rpt.phone, rpt.title, rpt.desc, rpt.Priority);saveText()"></button>
+            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(rpt.name, rpt.phone, rpt.title, rpt.desc, rpt.Priority)"></button>
         </div>
   </ion-content>
 </ion-view>

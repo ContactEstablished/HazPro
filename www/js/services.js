@@ -47,4 +47,50 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+.factory('markerLatLng', function() {
+  // Some fake map markers lat/lan
+  var markerLatLng = [{
+    id: 0,
+    description: 'Scana Corp CHQ',
+    lat: 33.9342677,
+    lng: -81.0501171
+  }, {
+    id: 1,
+    lat: 33.9567038,
+    lng: -81.0517176,
+    description: 'Scana Corp OSC'  
+  }, {
+    id: 2,
+    lat: 33.9532923,
+    lng: -81.0479975,
+    description: 'CGT Corp TOC'
+  }, {
+    id: 3,
+    lastText: 33.9568409,
+    face: -81.0463385,
+    description: 'Scana Corp Maintenance Way Bldg'    
+  }, {
+    id: 4,
+    lat: 33.9548635,
+    lng: -81.045136,
+    description: 'Scana Corp Field Services'    
+  }];
+  
+   return {
+    all: function() {
+      return markerLatLng;
+    },
+    remove: function(markerId) {
+      markerLatLng.splice(markerLatLng.indexOf(markerId), 1);
+    },
+    get: function(markerId) {
+      for (var i = 0; i < markerLatLng.length; i++) {
+        if (markerLatLng[i].id === parseInt(markerId)) {
+          return markerLatLng[i];
+        }
+      }
+      return null;
+    }
+   }
 });

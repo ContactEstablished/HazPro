@@ -1,7 +1,7 @@
 {
-  "name": "tabs",
+  "name": "hazpro",
   "version": "1.1.1",
-  "description": "tabs: An Ionic project",
+  "description": "HazPro: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -23,6 +23,7 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
+    "android",
     "ios"
   ]
 }

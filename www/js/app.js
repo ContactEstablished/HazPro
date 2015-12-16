@@ -15,7 +15,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    Parse.initialize("J7PdpYTk1tprSwxwu0Y3J9YgYEqVMKsfRCBpBP23", "l7tMFofSGwdGXq2CSNB6jIZatHu6UdcZjIXDS7hd");
+    //Parse.initialize("J7PdpYTk1tprSwxwu0Y3J9YgYEqVMKsfRCBpBP23", "l7tMFofSGwdGXq2CSNB6jIZatHu6UdcZjIXDS7hd");
     
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -83,6 +83,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
+      }
+    }
+  }) .state('tab.mapit', {
+    url: '/mapit',
+    views: {
+      'tab-mapit': {
+        templateUrl: 'templates/tab-mapit.html',
+        controller: 'MapItCtrl'
       }
     }
   });
