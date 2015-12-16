@@ -26,31 +26,21 @@ angular.module('starter.controllers', [])
     
        window.location.href = link;  
    };  
-
 //File
-     
-     
-       
-        
-        $scope.saveText=function(){ 
-                var name = document.getElementById('name') ;
-                var   desc = document.getElementById('description') ;
-                var   inctitle = document.getElementById('inctitle');
-                var  phonenum = document.getElementById('phonenum');
-                var  priority = document.getElementById('priority');
-                
-               
-    	          insertData(name.value,desc.value,inctitle.value,phonenum.value,priority.value);
-                name.value = '';
-                desc.value = '';
-                inctitle.value = '';
-                priority.value = '';
-                phonenum.value = '';
-           
-             
-        };
+   $scope.saveText=function(){ 
+       var name = document.getElementById('name') ;
+       var desc = document.getElementById('description') ;
+       var inctitle = document.getElementById('inctitle');
+       var phonenum = document.getElementById('phonenum');
+       var priority = document.getElementById('priority');
 
-
+   	   insertData(name.value,desc.value,inctitle.value,phonenum.value,priority.value);
+           name.value = '';
+           desc.value = '';
+           inctitle.value = '';
+           priority.value = '';
+           phonenum.value = '';
+    };
   // Called when a photo is successfully retrieved
     //
     function onPhotoDataSuccess(imageData) {
@@ -90,8 +80,8 @@ angular.module('starter.controllers', [])
       alert('Failed because: ' + message);
     }
 
-$scope.capturePhotoWithData=function(){
-   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+    $scope.capturePhotoWithData=function(){
+       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
   
   
 };
