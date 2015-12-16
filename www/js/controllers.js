@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+﻿angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -125,7 +125,7 @@ $scope.remove = function(chat) {
   var len = dbresults.rows.length;
   for (var i=0; i<len; i++) {
    	var incident1 = dbresults.rows.item(i);
-    hazlist=hazlist+'<li><a href=tab-mapit.html>'+incident1.title + '</a> - ' + incident1.description + '</li>';
+   	hazlist=hazlist+'<li ><div class=list card><a href=tab-mapit.html class=item-divider>'+incident1.title + '</a> <div class=item item-body>' + incident1.description + '</div> </div></li>';​
  }
      
     document.getElementById('IncidentList').innerHTML=hazlist;

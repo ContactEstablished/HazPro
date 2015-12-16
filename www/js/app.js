@@ -6,7 +6,13 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value 
+var destinationType; // sets the format of returned value 
+var myLat;
+var mylng;
+var filename;
+var db;
+var dbCreated = false;
+var dbresults;
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
