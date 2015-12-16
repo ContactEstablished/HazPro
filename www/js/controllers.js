@@ -26,7 +26,30 @@ angular.module('starter.controllers', [])
        window.location.href = link;  
    };  
 
-  
+//File
+     
+     
+       
+        
+        $scope.saveText=function(){ 
+                var name = document.getElementById('name') ;
+                var   desc = document.getElementById('description') ;
+                var   inctitle = document.getElementById('inctitle');
+                var  phonenum = document.getElementById('phonenum');
+                var  priority = document.getElementById('priority');
+                
+               
+    	          insertData(name.value,desc.value,inctitle.value,phonenum.value,priority.value);
+               name.value = '';
+                desc.value = '';
+                inctitle.value = '';
+                priority.value = '';
+                phonenum.value = '';
+           
+             
+        };
+
+
   // Called when a photo is successfully retrieved
     //
     function onPhotoDataSuccess(imageData) {
@@ -65,9 +88,10 @@ angular.module('starter.controllers', [])
     function onFail(message) {
       alert('Failed because: ' + message);
     }
+
 $scope.capturePhotoWithData=function(){
    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
-   
+  
   
 };
 /*$scope.SaveData=function(){
@@ -95,6 +119,17 @@ $scope.remove = function(chat) {
 })
 
 .controller('AccountCtrl', function($scope) {
+  
+  $scope.LoadList=function(){
+  var hazlist='';
+  var len = dbresults.rows.length;
+  for (var i=0; i<len; i++) {
+   	var incident1 = dbresults.rows.item(i);
+    hazlist=hazlist+'<li><a href=tab-mapit.html>'+incident1.title + '</a> - ' + incident1.description + '</li>';
+ }
+     
+    document.getElementById('IncidentList').innerHTML=hazlist;
+};
   $scope.settings = {
     enableFriends: true
   };
