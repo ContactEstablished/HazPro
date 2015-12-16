@@ -34,8 +34,8 @@ function getHazards_success(tx, results) {
 	//$('#busy').hide();
 	
 	dbresults=results;
-    var len = dbresults.rows.length;
-	//alert(len);
+	var len = dbresults.rows.length;
+	// alert(len);
 	
     //for (var i=0; i<len; i++) {
 		//alert(i);
@@ -44,7 +44,7 @@ function getHazards_success(tx, results) {
 		 //document.getElementById('HazardList').append('<li>' + incident.id+'<p>' + incident.title + '- ' + incident.description + '</p></li>');
    // }
 	 
-	db = null;
+	// db = null;
 }
 
 function populateDB(tx) {
@@ -60,8 +60,8 @@ function populateDB(tx) {
 		"title VARCHAR(50), " +
 		 
 		"phone VARCHAR(30), " + 
-		
-		"gpscord VARCHAR(30), " +
+		"imageURL VARCHAR(200), " + 
+		"gpscord VARCHAR(50), " +
 		"priority VARCHAR(20))";
     tx.executeSql(sql);
 
@@ -72,11 +72,21 @@ function populateDB(tx) {
     
 }
  
-function insertData(name,title,description,phone,priority)
+function insertData(name,title,description,phone,priority,gpscord,imagepath)
 {
-	db.transaction(function(transaction) {
-		transaction.executeSql("INSERT INTO incidents (Name,title,description,phone,priority) VALUES ('" + name +"','"+title+"',"+description+"'"+phone+"',"+priority+"')");
-	});
+	var sql="INSERT INTO incidents (Name,title,description,phone,priority,gpscord,imageURL) VALUES (?,?,?,?,?,?,?)";
+	  alert(imagepath.length);
+	  try {
+		  	db.transaction(function(tx){
+				  tx.executeSql(sql,[name,title,description,phone,priority,gpscord,imagepath],getHazards);
+			  })
+	  } catch (error) {
+		  alert(error)
+	  }
+
+	  //sql = "select * from incidents";
+	 
+	//db.transaction.executeSql(sql, [], getHazards_success);
 }
 function getData(sql) {
 	 
