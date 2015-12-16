@@ -5,7 +5,8 @@ angular.module('starter.controllers', [])
 .controller('ChatsCtrl', function($scope, Chats) {
 
 // Email setup function
-  $scope.sendEmail = function(name, phone, title, desc, priority) { 
+  $scope.sendEmail = function(name, phone, title, desc, priority) {
+       var image = document.getElementById('smallImage');
        var area = phone.substring(0,3);
        var ph1 = phone.substring(3,6);
        var ph2 = phone.substring(6,10);
@@ -15,10 +16,12 @@ angular.module('starter.controllers', [])
                   "Phone: " + telephone + '<br />' + 
                   "Incident: " + title + '<br />' + 
                   "Desc: " + desc + '<br />' + 
-                  "Priority: " + priority;
-       var link = "mailto:hackathonphonegap@gmail.com"  
-                + "?subject=New%20incident%20report "  
-               + "&body=" + body;  
+                  "Priority: " + priority + '<br />' +
+                  "Image: " + image.innerHTML;
+                  alert(image.innerHTML);
+       var link = "mailto:hackathonphonegap@gmail.com" +
+                  "?subject=New%20incident%20report " + 
+                  "&body=" + body;  
     
        window.location.href = link;  
    };  
@@ -65,7 +68,6 @@ angular.module('starter.controllers', [])
 $scope.capturePhotoWithData=function(){
    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
    
-  
   
 };
 /*$scope.SaveData=function(){
