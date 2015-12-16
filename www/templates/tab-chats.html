@@ -1,33 +1,33 @@
 <style>
 .icon.ion-close {
-	fill:red;
-	stroke:red;
-	color:red;
+fill:red;
+stroke:red;
+color:red;
 }
 .icon.ion-checkmark {
-	fill:green;
-	stroke:green;
-	color:green;
+fill:green;
+stroke:green;
+color:green;
 }
 </style>
 <ion-view view-title="Report Incident">
   <ion-content>
         <form name="myForm" class="list">
             <label class="item item-input">
-                <input type="text" ng-model="rpt.name" placeholder="Your Name">
+                <input type="text" placeholder="Your Name" id="name">
             </label>
             <label class="item item-input">
-                <input type="tel"  ng-model="rpt.phone" placeholder="Contact Number">
+                <input type="tel" placeholder="Contact Number" id="phonenum">
             </label>
             <label class="item item-input">
-                <input type="text" ng-model="rpt.title" placeholder="Incident Title">
+                <input type="text" placeholder="Incident Title" id="inctitle">
             </label>
             <label class="item item-input">
-                <input type="text" ng-model="rpt.desc" placeholder="Description">
+                <input type="text" placeholder="Description" id="description">
             </label>
             <label class="item item-select">
                 <span class="input-label">Priority</span>
-                <select ng-model="rpt.Priority">
+                <select id="priority">
                     <option>Low</option>
                     <option>Medium</option>
                     <option>High</option>
@@ -39,8 +39,11 @@
         <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
         <div class="spacer" style="width: 283px; height: 29px;"></div>
         <div class="button-bar">
-            <button class="button button-stable button-block  icon ion-close " onclick="history.go(-1);"></button>
-            <button class="button button-stable button-block  icon ion-checkmark "ng-click="sendEmail(rpt.name, rpt.phone, rpt.title, rpt.desc, rpt.Priority)"></button>
+            <button class="button button-stable button-block  icon ion-close "></button>
+            <button class="button button-stable button-block  icon ion-checkmark "ng-click="save();"></button>
+            <dl id="definitions">
+
+        </dl>
         </div>
   </ion-content>
-</ion-view>
+</ion-view>​

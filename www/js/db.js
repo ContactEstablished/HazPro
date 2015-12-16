@@ -65,17 +65,17 @@ function populateDB(tx) {
 		"priority VARCHAR(20))";
     tx.executeSql(sql);
 
-    tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority) VALUES (1,'Steven','Gas Leak','hello world', '617-000-0012','Low')");
-	tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority) VALUES (2,'Steven2','Gas Leak2','hello world2', '617-000-0013','Low')");
-	tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority) VALUES (3,'Steven3','Gas Leak3','hello world3', '617-000-0014','Low')");
-	tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority) VALUES (4,'Steven4','Gas Leak4','hello world4', '617-000-0015','Low')");
+    tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority,gpscord) VALUES (1,'Steven','Gas Leak','hello world', '617-000-0012','Low','33.9342677, -81.0501171')");
+	tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority,gpscord) VALUES (2,'Steven2','Gas Leak2','hello world2', '617-000-0013','Low','33.9567038, -81.0517176')");
+	tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority,gpscord) VALUES (3,'Steven3','Gas Leak3','hello world3', '617-000-0014','Low','33.9532923, -81.0479975')");
+	tx.executeSql("INSERT INTO incidents (id,Name,title,description,phone,priority,gpscord) VALUES (4,'Steven4','Gas Leak4','hello world4', '617-000-0015','Low','33.9568409, -81.0463385')");
     
 }
  
 function insertData(name,title,description,phone,priority,gpscord,imagepath)
 {
 	var sql="INSERT INTO incidents (Name,title,description,phone,priority,gpscord,imageURL) VALUES (?,?,?,?,?,?,?)";
-	  alert(imagepath.length);
+	 // alert(imagepath.length);
 	  try {
 		  	db.transaction(function(tx){
 				  tx.executeSql(sql,[name,title,description,phone,priority,gpscord,imagepath],getHazards);

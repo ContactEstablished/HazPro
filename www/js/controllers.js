@@ -4,51 +4,78 @@
 
 .controller('ChatsCtrl', function($scope, Chats) {
 
-// Email setup function
-  $scope.sendEmail = function(name, phone, title, desc, priority) {
-       var image = document.getElementById('smallImage');
-       var area = phone.substring(0,3);
-       var ph1 = phone.substring(3,6);
-       var ph2 = phone.substring(6,10);
-       var telephone = "(" + area + ")" + ph1 + "-" + ph2; 
+// Email setup 
+$scope.save= function(){
+  //alert("save1")
+  //saveText();
+    var name = document.getElementById('name');
+                var   desc = document.getElementById('description');
+                var   inctitle = document.getElementById('inctitle');
+                var  phonenum = document.getElementById('phonenum');
+                var  priority = document.getElementById('priority');
+          
+               try {
+                 insertData(name.value,desc.value,inctitle.value,phonenum.value,priority.value, myLat+","+mylng, filename);
+               } catch (error) {
+                 alert(error)
+               }
+
+              //alert("save3")
+              
+                
+  //sendEmail(name, phone, title, desc, priority);
+  //  var image = document.getElementById('smallImage');
+        var area = phonenum.value.substring(0,3);
+        var ph1 = phonenum.value.substring(3,6);
+        var ph2 = phonenum.value.substring(6,10);
+        var telephone = "(" + area + ")" + ph1 + "-" + ph2; 
   	   var body = "An incident has been reported by: " + '<br />' +
-                  "Name: " + name + '<br />' + 
+                  "Name: " + name.value + '<br />' + 
                   "Phone: " + telephone + '<br />' + 
-                  "Incident: " + title + '<br />' + 
-                  "Desc: " + desc + '<br />' + 
-                  "Priority: " + priority + '<br />' +
-                  "Image: " + image.innerHTML;
-                  alert(image.innerHTML);
+                  "Incident: " + inctitle.value + '<br />' + 
+                  "Desc: " + desc.value + '<br />' + 
+                  "Priority: " + priority.value + '<br />' +
+                  "Image: " + filename;
+                 // alert(image.innerHTML);
        var link = "mailto:hackathonphonegap@gmail.com" +
                   "?subject=New%20incident%20report " + 
                   "&body=" + body;  
     
-       window.location.href = link;  
-   };  
+       window.location.href = link;
+       
+        name.value = '';
+                desc.value = '';
+                inctitle.value = '';
+                priority.value = '';
+                phonenum.value = ''  
+};
+
+//  function sendEmail(name, phone, title, desc, priority) {
+//        var image = document.getElementById('smallImage');
+//        var area = phone.substring(0,3);
+//        var ph1 = phone.substring(3,6);
+//        var ph2 = phone.substring(6,10);
+//        var telephone = "(" + area + ")" + ph1 + "-" + ph2; 
+//   	   var body = "An incident has been reported by: " + '<br />' +
+//                   "Name: " + name + '<br />' + 
+//                   "Phone: " + telephone + '<br />' + 
+//                   "Incident: " + title + '<br />' + 
+//                   "Desc: " + desc + '<br />' + 
+//                   "Priority: " + priority + '<br />' +
+//                   "Image: " + image.innerHTML;
+//                   alert(image.innerHTML);
+//        var link = "mailto:hackathonphonegap@gmail.com" +
+//                   "?subject=New%20incident%20report " + 
+//                   "&body=" + body;  
+//     
+//        window.location.href = link;  
+//    }  
 
 //File
      
      
        
-        
-        $scope.saveText=function(){ 
-                var name = document.getElementById('name') ;
-                var   desc = document.getElementById('description') ;
-                var   inctitle = document.getElementById('inctitle');
-                var  phonenum = document.getElementById('phonenum');
-                var  priority = document.getElementById('priority');
-                
-               
-    	          insertData(name.value,desc.value,inctitle.value,phonenum.value,priority.value);
-               name.value = '';
-                desc.value = '';
-                inctitle.value = '';
-                priority.value = '';
-                phonenum.value = '';
-           
-             
-        };
-
+       
 
   // Called when a photo is successfully retrieved
     //
@@ -63,6 +90,7 @@
       // The inline CSS rules are used to resize the image
       //
       smallImage.src = imageData;
+      filename = smallImage.src;
     }
     
 	// Called when a photo is successfully retrieved
@@ -148,14 +176,24 @@ $scope.remove = function(chat) {
               $ionicLoading.hide();  
               console.log('Got pos', position);
               var marker = [];              
-              var latLng = markerLatLng.all();
-              for (var i = 0; i < latLng.length; i++) {
-                marker[i] = new google.maps.Marker({ position: new google.maps.LatLng(latLng[i].lat, latLng[i].lng) , map: map, title: 'Test Marker' });
-                bounds.extend(new google.maps.LatLng(latLng[i].lat, latLng[i].lng));
-              }            
+                //var latLng = markerLatLng.all();
+              var len = dbresults.rows.length;
+              for (var i=0; i<len; i++) {
+                    var incident1 = dbresults.rows.item(i);
+                    var lat = incident1.gpscord.split(',')[0].substring(0, 10);
+                    var lng = incident1.gpscord.split(',')[1].substring(0, 11);
+                marker[i] = new google.maps.Marker({ position: new google.maps.LatLng(lat, lng) , map: map, title: 'Test Marker' });
+                bounds.extend(new google.maps.LatLng(lat, lng));
+              }
+              // for (var i = 0; i < latLng.length; i++) {
+              //   marker[i] = new google.maps.Marker({ position: new google.maps.LatLng(latLng[i].lat, latLng[i].lng) , map: map, title: 'Test Marker' });
+              //   bounds.extend(new google.maps.LatLng(latLng[i].lat, latLng[i].lng));
+              // }
               map.setCenter(bounds.getCenter());
               map.fitBounds(bounds);
-              $scope.map = map;                           
+              $scope.map = map;          
+              myLat = position.coords.latitdue;
+              mylng = position.coords.longitude;    
         };
         
         var onError1 = function(err) {
